@@ -64,7 +64,7 @@ services:
     depends_on:
       superset-init:
         condition: service_completed_successfully
-    volumes: *superset-volumes
+    # volumes: *superset-volumes
     volumes:
       - ./superset_config.py:/app/pythonpath/superset_config.py:ro
     environment:
