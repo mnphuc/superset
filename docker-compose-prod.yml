@@ -66,6 +66,8 @@ services:
         condition: service_completed_successfully
     # volumes: *superset-volumes
     volumes:
+      - ./docker:/app/docker
+      - superset_home:/app/superset_home
       - ./superset_config.py:/app/pythonpath/superset_config.py:ro
     environment:
       SUPERSET_CONFIG_PATH: /app/pythonpath/superset_config.py
@@ -98,7 +100,11 @@ services:
       superset-init:
         condition: service_completed_successfully
     user: "root"
-    volumes: *superset-volumes
+    # volumes: *superset-volumes
+    volumes:
+      - ./docker:/app/docker
+      - superset_home:/app/superset_home
+      - ./superset_config.py:/app/pythonpath/superset_config.py:ro
     healthcheck:
       test:
         [
@@ -118,7 +124,10 @@ services:
       superset-init:
         condition: service_completed_successfully
     user: "root"
-    volumes: *superset-volumes
+    volumes:
+      - ./docker:/app/docker
+      - superset_home:/app/superset_home
+      - ./superset_config.py:/app/pythonpath/superset_config.py:ro
     healthcheck:
       disable: true
 
