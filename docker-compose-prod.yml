@@ -25,7 +25,7 @@ x-superset-volumes:
   &superset-volumes # /app/pythonpath_docker will be appended to the PYTHONPATH in the final container
   - ./docker:/app/docker
   - superset_home:/app/superset_home
-  - ./superset_config.py:/app/pythonpath/superset_config.py
+  # - ./superset_config.py:/app/pythonpath/superset_config.py
 x-common-build: &common-build
   context: .
   target: dev
